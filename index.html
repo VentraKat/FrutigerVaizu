@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrutigerHub</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADlElEQVR4AVzSXUxbZRgH8D+nX9APoNC1paMIpLjRrsgyTSCDwHSZi8NNjcv0RoxxiRfGyKLMKbpeGBOmkaiZ8SsZkkzjiIoCFxJNNsCKYxQc2BbW8jGg7dqe9eOcnranPa2nZ+iFb973n/fieX7vc/ES+N8ytb/d0db91btd50bsJ/rG/A+/fOWq+cjAef2+1zo1e3pVfHkRf/7bO8BJkS2fJw6dHuw3dRkn6o753rIc9rQaGzm9qlrbsf9Yh83a8ejXdc8FL1WYeszotIn/FXaAK7mZM8MjsTZ7r755W2rIWlFZpcEWVQmJXgWpWgZFhazGJHriybKy+ue1/ogZsBEFRIjWU4MD6+bvHy9+8DpeOnAQb57cC2vkIDT6UihrNSBkYkiLJdhtYgjLEZwRl1QeVe0NqQWgurmv8+6+G6+ImkRoLLFAp1BAIpKjvroUe6wacGIxuKIiiHlA1/4LWl79iVA3ynvkOel+AZBUiZ+9pZ0qotfi8ERLcY2dQSRUjp+nVvF3TIQEk0Wa5ZBMpEGxXkS5JORmv75YZWi9B2iJx5p+fR1l488g83kbvntnNy4Oz2G+uRFkEmBovjmWQZa/K0tkCCUSSGoWoFTrDglASkzppEQFoDSAaWhC7MAD+F1Xi+2VKOLrFDg/AzbMIhnN4bftNdxc8yHI0shzsgYBYKl8OFnigZTiix0uUBMOREamEB/9A9n52ygqAMEU6BiD1T9bwS11oXruBaQp6pYAyFaMP2actUgF0pDwY8rf+AH156fR0reEhpZVZEkGqXgOIkkxDI4XUb58AsXELmRYclIA0iw5BoiRTXOIPjUIZ4hDKE5giSZBWv+C4fAypBoR5NocdlkqUPfI/ZDJNLFk6s51AchyqekUu3UJmRJIx46CXvFiJrgAHxPmTxru+hnET/cjEd+CRMnBZ49j1TH7McQphwCEly9QyZR7gGUTE9gw4r7JU9BESpGj+EloD4IpH/K0AZJyCfxzDMi19ct07PZoyKkNCkAh7ujLXDQ915vJkF/KNyzILEqQ8CXBptPQeNtRee1pyFVVucCi88MNl/0jdS53k//KuUIvUQhctWWDK5tLwcT8ubvkbJfCbh0ivqnZLB86zjCfGW94v128MHt59DgZWnifNKjnPZ5P0kIfH/cA/gIMc5T7IhlwvTe+OdnfHZj4osY9dFbhnu5+yOvoORt2fTAecn4aKDwmlO/EPwAAAP//tRQMMwAAAAZJREFUAwB7VpYwY68DwQAAAABJRU5ErkJggg==">
+    <link href="https://googleapis.com" rel="stylesheet">
+</head>
+<body>
+  <div class="home"></div>
+<div class="home2">
+    <h1 style="color: #FFF;">Добро пожаловать в FrutigerHub!</h1>
+    <p style="color: #FFF;">Нажмите кнопку, чтобы начать исследовать мир Frutiger Aero!</p>
+    
+    <button id="connect" class="button" onclick="connect_to_server()"><div id="loading" class="loading" style="display: none;"></div><div id="caption" class="caption">Начать</div></button>
+    <div id="status" class="status" style="display: none;"></div>
+</div>
+</body>
+<script>
+function connect_to_server() {
+document.getElementById('loading').style.display = "block";
+document.getElementById('connect').disabled = true;
+
+document.getElementById('caption').textContent = "Подключение...";
+document.getElementById('status').style.display = "none";
+
+setTimeout(() => {
+  let error = "Connection not reasoned";
+  console.error("Error: " + error);
+  document.getElementById('loading').style.display = "none";
+document.getElementById('connect').disabled = false;
+document.getElementById('caption').textContent = "Начать";
+document.getElementById('status').textContent = "Не удалось подключиться к серверу: " + error;
+  document.getElementById('status').style.display = "block";
+}, 2000);
+
+
+}
+  
+</script>
+<style>
+body {
+    font-family: 'Roboto', sans-serif;
+
+    margin: 0;
+    padding: 0;
+}
+
+.home {
+position: absolute;
+height: 100%;
+width: 100%;
+    background-image: url('https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/3797460/1e361f6ed83dc2b821eabb63d04bf3c0d7b06fe5/ss_1e361f6ed83dc2b821eabb63d04bf3c0d7b06fe5.1920x1080.jpg?t=1765820388');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+display: flex;
+flex-direction: column;
+
+justify-content: center;
+align-items: center;
+}
+
+.home2 {
+position: absolute;
+height: 100%;
+width: 100%;
+background-color: rgba(0,0,0,0.1);
+backdrop-filter: blur(10px);
+display: flex;
+flex-direction: column;
+justify-content: center;
+z-index: 200;
+align-items: center;
+}
+
+.button:disabled {
+opacity: 0.5;
+pointer-events: none;
+}
+
+.button .caption {
+font-size: 14px;
+}
+
+.button {
+align-items: center;
+height: 40px;
+border: none;
+gap: 8px;
+display: flex;
+outline: none;
+border-radius: 40px;
+padding-left: 16px;
+padding-right: 16px;
+background: #FFF;
+color: #000;
+cursor: pointer;
+}
+.button:hover { background: #DDD; }
+.button:active { background: #CCC; }
+.status {
+background: #F00;
+color: #FFF;
+margin-top: 16px;
+}
+.loading {
+
+border-radius: 50%;
+height: 16px;
+width: 16px;
+border: 2px solid rgba(0,0,0,0.5);
+border-top: 2px solid #000;
+animation: rotation 1s linear infinite;
+border-right: 2px solid #000;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+</html>
