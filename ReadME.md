@@ -1,4 +1,4 @@
-## FrutigerHUB
+## FrutigerVaizu
 
 конференция в виде 3д, с созданием своих миров
 
@@ -7,4 +7,4 @@
 игра на html. с мультиплеером, будут только локальные
 сама игра оффлайн, но лаунчер по интернету
 
-[🌎 открыть FrutigerHub](https://ventrakat.github.io/FrutigerHub/)
+[🌎 открыть FrutigerVaizu](https://ventrakat.github.io/FrutigerVaizu/)
