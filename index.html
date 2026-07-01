@@ -27,15 +27,24 @@ document.getElementById('caption').textContent = "Подключение...";
 document.getElementById('status').style.display = "none";
 
 setTimeout(() => {
-  let error = "Connection not reasoned";
+  con_to_server_success();
+}, 2000);
+
+
+}
+
+function con_to_server_success(){
+window.location.href = "https://coldos.ru/frutigervaizu/app.html";
+}
+
+function error_connection_reset(error_text){
+let error = error_text;
   console.error("Error: " + error);
   document.getElementById('loading').style.display = "none";
 document.getElementById('connect').disabled = false;
 document.getElementById('caption').textContent = "Начать";
 document.getElementById('status').textContent = "Не удалось подключиться к серверу: " + error;
   document.getElementById('status').style.display = "block";
-}, 2000);
-
 
 }
   
